@@ -1,0 +1,7 @@
+dist
+distv1
+node_modules
+dist/*
+distv1/*
+node_modules/*
+package-lock.json

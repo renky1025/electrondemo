@@ -1,0 +1,60 @@
+{
+    "name": "electron_hello",
+    "version": "1.0.8",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "electron .",
+        "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out",
+        "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out",
+        "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out",
+        "package": "electron-packager . electrondemo --platform=darwin --arch=x64 --icon=static/icon.png --asar --overwrite --ignore=.git",
+        "build": "electron-builder"
+    },
+    "build": {
+        "appId": "org.electron.com",
+        "publish": [{
+            "provider": "generic",
+            "url": "http://10.101.0.121:8080/"
+        }],
+        "productName": "electrondemo",
+        "directories": {
+            "output": "dist"
+        },
+        "mac": {
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "icon": "static/icon.png"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "zip"
+            ]
+        },
+        "dmg": {
+            "backgroundColor": "white",
+            "title": "made",
+            "contents": [{
+                "x": 400,
+                "y": 128,
+                "type": "link",
+                "path": "/Applications"
+            }]
+        }
+    },
+    "keywords": [],
+    "author": "Kangyao Ren <renky_1025@hotmail.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^3.0.2",
+        "electron-builder": "^20.28.4",
+        "electron-packager": "^12.1.2"
+    },
+    "dependencies": {
+        "electron-updater": "^3.1.2"
+    }
+}
